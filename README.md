@@ -1,4 +1,4 @@
-# TreatApp
+# TreatApp with Identity
 #### An MVC web application for Pierre's Sweet and Savory Treats to track their Treat offerings and flavor profiles.
 
 #### By Brent Hickman
