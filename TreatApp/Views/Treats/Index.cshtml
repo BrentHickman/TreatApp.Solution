@@ -1,0 +1,48 @@
+@{
+  Layout = "_Layout";
+}
+@model IEnumerable<TreatApp.Models.Treat>
+@using TreatApp.Models;
+@{
+
+  ViewData["Title"] = "Index";
+}
+
+<h1>Treats for @User.Identity.Name</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                        <a href='/Treats?sortOrder=name_desc'>
+                        @Html.DisplayNameFor(model => model.Name)</a>
+
+                </th>
+                <th>
+                        <a href='/Treats?sortOrder=price_desc'>
+                        @Html.DisplayNameFor(model => model.Price)</a>
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@if (!Model.Any())
+{
+  <h3>No treats have been added yet!</h3>
+} 
+else
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <tr>
+        <td><li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li></td>
+        <td><li>@Html.ActionLink($"{treat.Price}", "Details", new { id = treat.TreatId })</li></td>
+      </tr>
+    }
+  </ul>
+}
+    </tbody>
+    </table>
+<p>@Html.ActionLink("Add new treat", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

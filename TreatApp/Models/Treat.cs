@@ -10,7 +10,7 @@ namespace TreatApp.Models
     public string Name { get; set; }
     [Required(ErrorMessage = "The Treat's description can't be empty!")]
     public string Description { get; set; }
-    public int Price { get; set; }
+    public float Price { get; set; }
     public List<TreatFlavor> JoinEntities { get;}
     public ApplicationUser User { get; set; }
 
