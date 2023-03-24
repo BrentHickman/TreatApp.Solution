@@ -116,7 +116,7 @@ namespace TreatApp.Controllers
     public ActionResult AddFlavor(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Title");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
       return View(thisTreat);
     }
 
