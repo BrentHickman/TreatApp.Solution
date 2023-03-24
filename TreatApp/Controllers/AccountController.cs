@@ -1,5 +1,3 @@
-using System;
-using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using TreatApp.Models;
