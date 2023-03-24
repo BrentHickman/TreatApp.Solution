@@ -21,6 +21,7 @@ namespace TreatApp.Controllers
       [HttpGet("/")]
       public async Task<ActionResult> Index()
       {
+        if (User.Identity.IsAuthenticated){
         Flavor[] flavors = _db.Flavors.ToArray();
         Dictionary<string,object[]> model = new Dictionary<string, object[]>();
         model.Add("flavors", flavors);
@@ -34,6 +35,10 @@ namespace TreatApp.Controllers
           model.Add("treats", treats);
         }
         return View(model);
+        }
+        else{
+          return View(_db.Treats.ToList());
+        }
       }
   }
 }

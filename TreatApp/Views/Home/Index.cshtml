@@ -18,14 +18,18 @@
   <ul>
     @foreach (Treat treat in Model["treats"])
     {
-      <li>@Html.ActionLink(@treat.Description, "Details", "Treats", new { id = @treat.TreatId})</li>
+      <li>@Html.ActionLink(@treat.Name, "Details", "Treats", new { id = @treat.TreatId})</li>
     }
   </ul>
 }
 else
 {
-  <h4>Treats</h4>
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your treats.</p>
+  <h4>All Treats</h4>
+      @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink(@treat.Name, "Details", "Treats", new { id = @treat.TreatId})</li>
+    }
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") manage your treats.</p>
 }
 
 <hr>
